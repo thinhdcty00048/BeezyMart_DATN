@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  *
- * @author davidthinh
+ *
  */
 public class Beezymart_code {
 
