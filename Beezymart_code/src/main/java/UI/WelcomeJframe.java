@@ -35,7 +35,7 @@ public class WelcomeJframe extends javax.swing.JFrame {
 
         jLabel2.setText("0%");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
-        getContentPane().add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 690, 30));
+        getContentPane().add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 700, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\Screenshot 2025-07-04 082916.png")); // NOI18N
         jLabel4.setText("jLabel4");
