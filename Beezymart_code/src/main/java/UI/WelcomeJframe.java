@@ -30,6 +30,7 @@ public class WelcomeJframe extends javax.swing.JFrame {
         jProgressBar2 = new javax.swing.JProgressBar();
         jLabel4 = new javax.swing.JLabel();
 
+<<<<<<< Updated upstream
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -39,6 +40,18 @@ public class WelcomeJframe extends javax.swing.JFrame {
 
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 470, 310));
+=======
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 791, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 391, Short.MAX_VALUE)
+        );
+>>>>>>> Stashed changes
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
