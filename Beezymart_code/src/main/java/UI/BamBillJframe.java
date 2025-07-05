@@ -38,6 +38,7 @@ public class BamBillJframe extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Screenshot 2025-07-05 085224.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setText("THOÁT");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -56,7 +57,7 @@ public class BamBillJframe extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(42, 42, 42)
+                .addGap(31, 31, 31)
                 .addComponent(jButton1)
                 .addGap(83, 83, 83))
             .addGroup(jPanel1Layout.createSequentialGroup()
