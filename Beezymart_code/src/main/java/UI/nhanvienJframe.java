@@ -8,12 +8,12 @@ package UI;
  *
  * @author Admin
  */
-public class BamBillJframe extends javax.swing.JFrame {
+public class nhanvienJframe extends javax.swing.JFrame {
 
     /**
      * Creates new form BamBillJframe
      */
-    public BamBillJframe() {
+    public nhanvienJframe() {
         initComponents();
     }
 
