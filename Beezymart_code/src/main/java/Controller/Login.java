@@ -4,10 +4,20 @@
  */
 package Controller;
 
+import Util.XDialog;
+
 /**
  *
- * @author Mai Phuong
+ * @author ADMIN
  */
-public interface NewInterface {
-    
+public interface Login {
+  void open();
+
+    void login();
+
+    default void exit() {
+        if (XDialog.confirm("Bạn muốn kết thúc?")) {
+            System.exit(0);
+        }
+    }  
 }
