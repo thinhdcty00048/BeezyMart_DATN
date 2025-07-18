@@ -8,6 +8,6 @@ package Entity;
  *
  * @author ADMIN
  */
-public class NewClass {
+public class Bill {
     
 }
