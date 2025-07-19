@@ -8,9 +8,11 @@ package Entity;
  *
  * @author Admin
  */
-public class Category {
+public class Card {
     private int Id;
+    private String Status;
     private String Name;
+    private int Capacity;
 
     public int getId() {
         return Id;
@@ -18,6 +20,14 @@ public class Category {
 
     public void setId(int Id) {
         this.Id = Id;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
     public String getName() {
@@ -28,11 +38,21 @@ public class Category {
         this.Name = Name;
     }
 
-    public Category(int Id, String Name) {
-        this.Id = Id;
-        this.Name = Name;
+    public int getCapacity() {
+        return Capacity;
     }
 
-    public Category() {
+    public void setCapacity(int Capacity) {
+        this.Capacity = Capacity;
+    }
+
+    public Card(int Id, String Status, String Name, int Capacity) {
+        this.Id = Id;
+        this.Status = Status;
+        this.Name = Name;
+        this.Capacity = Capacity;
+    }
+
+    public Card() {
     }
 }
