@@ -4,27 +4,42 @@
  */
 package UI;
 
+import Entity.User;
 import Util.XDialog;
 import com.company.controller.IRegisterController;
-
+     
 /**
  *
  * @author Admin
  */
 public class DangKyJframe extends javax.swing.JFrame implements IRegisterController {
 
+    
     /**
      * Creates new form DangKyJframe
      */
     public DangKyJframe(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+       super("parent, modal");
         initComponents();
     }
     
+    
+    public DangKyJframe() {
+    initComponents(); 
+    }
     private User getForm(){
         String userId = tfUserID.getText();
         String fullname = tfFullName.getText();
-        User user = new User(UserID, FullName, rootPaneCheckingEnabled, Password)
+        String Stringchucvu = cbchucvu.getSelectedItem().toString();
+        Boolean chucvu;
+        if (Stringchucvu.equals("Male")){
+            chucvu = true;
+} else{
+            chucvu = false;
+        }
+        String password = tfPassword.getText();
+        User user = new User(userId, fullname, chucvu, password);
+        return user;
     }
 
     /**
@@ -268,5 +283,6 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
         if (password.length() < 5 || password.length() > 10){
             XDialog.alert("Nhập Phải Từ 5 Đến 10 Ký Tự");
         }
+        
     }
 }

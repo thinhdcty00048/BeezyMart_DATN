@@ -25,7 +25,7 @@ public class User {
     private Date DateOfBirth;
     private String Department;
 
-    public User() {
+    public User(String userId, String fullname, Boolean chucvu, String password) {
     }
 
     public User(int Id, String Password, boolean Enable, String FullName, boolean Maneger, String Email, String PhoneNumber, Date CreatedAt, Date LastLogin, String Role, String ProfilePictule, Date DateOfBirth, String Department) {
