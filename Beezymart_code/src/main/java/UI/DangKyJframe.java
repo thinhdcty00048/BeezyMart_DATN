@@ -101,6 +101,12 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
 
         jButton2.setText("Hủy");
 
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPasswordActionPerformed(evt);
+            }
+        });
+
         cbchucvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân Viên", "Quản Lý" }));
 
         jLabel6.setText("Chức Vụ");
@@ -196,6 +202,10 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
         // TODO add your handling code here:
         this.dangky();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     /**
      * @param args the command line arguments
