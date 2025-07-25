@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@AllArgsConstructor
+
 @Data
 public class TimeRange {
 
@@ -14,6 +14,10 @@ public class TimeRange {
 
     private TimeRange(LocalDate begin, LocalDate end) {
         this(java.sql.Date.valueOf(begin), java.sql.Date.valueOf(end));
+    }
+    public TimeRange(Date begin, Date end){
+        this.begin = begin;
+        this.end = end;
     }
 
     public static TimeRange today() {
@@ -45,4 +49,5 @@ public class TimeRange {
         LocalDate begin = now.withMonth(1).withDayOfMonth(1);
         return new TimeRange(begin, begin.plusMonths(12));
     }
+    
 }
