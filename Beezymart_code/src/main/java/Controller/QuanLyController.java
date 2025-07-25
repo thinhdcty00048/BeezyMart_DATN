@@ -8,6 +8,6 @@ package Controller;
  *
  * @author Mai Phuong
  */
-public interface NewInterface1 {
+public interface QuanLyController {
     
 }

@@ -8,6 +8,6 @@ package Controller;
  *
  * @author Mai Phuong
  */
-public interface NewInterface {
+public interface DangKyController {
     
 }
