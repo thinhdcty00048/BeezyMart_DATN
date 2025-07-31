@@ -4,23 +4,43 @@
  */
 package UI;
 
+import Entity.User;
 import Util.XDialog;
 import com.company.controller.IRegisterController;
-
+     
 /**
  *
  * @author Admin
  */
-public class DangKyJframe extends javax.swing.JFrame implements IRegisterController{
+public class DangKyJframe extends javax.swing.JFrame implements IRegisterController {
 
+    
     /**
      * Creates new form DangKyJframe
      */
-    public DangKyJframe() {
+    public DangKyJframe(java.awt.Frame parent, boolean modal) {
+       super("parent, modal");
         initComponents();
     }
     
- 
+    
+    public DangKyJframe() {
+    initComponents(); 
+    }
+    private User getForm(){
+        String userId = tfUserID.getText();
+        String fullname = tfFullName.getText();
+        String Stringchucvu = cbchucvu.getSelectedItem().toString();
+        Boolean chucvu;
+        if (Stringchucvu.equals("Male")){
+            chucvu = true;
+} else{
+            chucvu = false;
+        }
+        String password = tfPassword.getText();
+        User user = new User(userId, fullname, chucvu, password);
+        return user;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,6 +63,8 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
         jButton2 = new javax.swing.JButton();
         tfPassword = new javax.swing.JPasswordField();
         tfConfirmPasword = new javax.swing.JPasswordField();
+        cbchucvu = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +84,7 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
             }
         });
 
-        jLabel2.setText("Tên ");
+        jLabel2.setText("UserName");
 
         jLabel3.setText("Họ Và Tên");
 
@@ -79,59 +101,79 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
 
         jButton2.setText("Hủy");
 
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPasswordActionPerformed(evt);
+            }
+        });
+
+        cbchucvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân Viên", "Quản Lý" }));
+
+        jLabel6.setText("Chức Vụ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(111, 111, 111))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfUserID, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(tfFullName)
-                            .addComponent(tfPassword)
-                            .addComponent(tfConfirmPasword)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jButton1)
-                        .addGap(103, 103, 103)
-                        .addComponent(jButton2)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addGap(63, 63, 63)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(cbchucvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(tfUserID, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                            .addComponent(tfFullName)
+                            .addComponent(tfPassword)
+                            .addComponent(tfConfirmPasword))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfConfirmPasword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbchucvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(34, 34, 34))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,6 +202,10 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
         // TODO add your handling code here:
         this.dangky();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,6 +243,7 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbchucvu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -204,6 +251,7 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField tfConfirmPasword;
     private javax.swing.JTextField tfFullName;
@@ -213,12 +261,38 @@ public class DangKyJframe extends javax.swing.JFrame implements IRegisterControl
 
     @Override
     public void dangky() {
-        String userId =tfUserID.getText();
-        String fullname =tfFullName.getText();
+        String userId = tfUserID.getText();
+        String fullname = tfFullName.getText();
+        String chucvu = cbchucvu.getSelectedItem().toString();
+        String password = tfPassword.getText();
+        String confirmPassword = tfConfirmPasword.getText();
+ 
+        if (userId == null || userId.isEmpty()) {
+            XDialog.alert("Vui Lòng UserName");
+            return;
+        }
+        if (fullname == null || fullname.isEmpty()) {
+            XDialog.alert("Vui Lòng Họ và Tên");
+            return;
+        }
+        if (chucvu == null || chucvu.isEmpty()) {
+            XDialog.alert("Vui Lòng Chọn Chức Vụ");
+            return;
+        }
+        if (password == null || password.isEmpty()) {
+            XDialog.alert("Vui Lòng Nhập Mật Khẩu");
+            return;
+        }
+        if (confirmPassword == null || confirmPassword.isEmpty()) {
+            XDialog.alert("Vui Lòng Nhập Lại Mật Khẩu ");
+            return;
+        }
+        if (!password.equals(confirmPassword)){
+            XDialog.alert("Mật Khẩu Nhập Lại Không Đúng");
+        }       
+        if (password.length() < 5 || password.length() > 10){
+            XDialog.alert("Nhập Phải Từ 5 Đến 10 Ký Tự");
+        }
         
-    if (userId == null || userId.isEmpty()){
-        XDialog.alert("Vui Lòng Điền Họ Và Tên");
-        return;
     }
-}
 }
