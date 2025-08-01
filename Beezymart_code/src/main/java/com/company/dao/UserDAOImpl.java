@@ -5,6 +5,7 @@
 package com.company.dao;
 
 import Entity.User;
+import Util.XJdbc;
 import java.util.List;
 
 /**
@@ -12,10 +13,26 @@ import java.util.List;
  * @author Admin
  */
 public class UserDAOImpl implements UserDAO{
-String createSql = "INSERT INTO User VALUES(?,?,?,?)";
+String createSql = "INSERT INTO [User] VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
     @Override
     public User create(User entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+ Object[] values = {
+     entity.getPassword(),
+     entity.isEnable(),
+     entity.getFullName(),
+     entity.isManeger(),
+     entity.getEmail(),
+     entity.getPhoneNumber(),
+     entity.getCreatedAt(),
+     entity.getLastLogin(),
+     entity.getRole(),
+     entity.getProfilePictule(),
+     entity.getDateOfBirth(),
+     entity.getDepartment(),
+     
+};
+XJdbc.executeUpdate(createSql, values);
+return entity;
     }
 
     @Override
