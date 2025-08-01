@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.company.controller;
+package Dao;
+
+import Entity.User;
 
 /**
  *
- * @author Admin
+ * @author ADMIN
  */
-public interface IRegisterController {
-    void dangky();
+public interface UserDao extends CrudDAO<User, String> {
+    
 }
