@@ -9,5 +9,7 @@ package Controller;
  * @author Mai Phuong
  */
 public interface DoiMatKhauController {
-    
+  void open();
+void save();
+void close();  
 }
