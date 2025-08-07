@@ -6,40 +6,33 @@ package Entity;
 
 /**
  *
- * @author ADMIN
+ * @author Admin
  */
-import  lombok.*;
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@Data
-
 public class Category {
-  private String id;
-    private String name;  
+    private int Id;
+    private String Name;
 
-    public Category() {
+    public int getId() {
+        return Id;
     }
 
-    public Category(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
+    public Category(int Id, String Name) {
+        this.Id = Id;
+        this.Name = Name;
+    }
+
+    public Category() {
+    }
 }

@@ -2,12 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package Controller;
+package com.company.dao;
+
+import Entity.User;
+
+
 
 /**
  *
- * @author Mai Phuong
+ * @author Admin
  */
-public interface DangKyController {
-    
+public interface UserDAO extends CrudDAO<User, String>{
 }

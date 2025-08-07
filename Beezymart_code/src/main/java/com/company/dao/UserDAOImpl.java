@@ -2,47 +2,57 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Entity;
+package com.company.dao;
+
+import Entity.User;
+import Util.XJdbc;
+import java.util.List;
 
 /**
  *
- * @author ADMIN
+ * @author Admin
  */
-import lombok.*;
+public class UserDAOImpl implements UserDAO{
+String createSql = "INSERT INTO [User] VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+    @Override
+    public User create(User entity) {
+ Object[] values = {
+     entity.getPassword(),
+     entity.isEnable(),
+     entity.getFullName(),
+     entity.isManeger(),
+     entity.getEmail(),
+     entity.getPhoneNumber(),
+     entity.getCreatedAt(),
+     entity.getLastLogin(),
+     entity.getRole(),
+     entity.getProfilePictule(),
+     entity.getDateOfBirth(),
+     entity.getDepartment(),
+     
+};
+XJdbc.executeUpdate(createSql, values);
+return entity;
+    }
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@Data
-public class BillDetail {
-private Long id;
-private Long billId;
-private String drinkId;
-private double unitPrice;
-private double discount;
-private int quantity;
-
-    public Object getId() {
+    @Override
+    public void update(User entity) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Object getBillId() {
+    @Override
+    public void deleteById(String id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Object getDrinkId() {
+    @Override
+    public List<User> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Object getUnitPrice() {
+    @Override
+    public User findById(String id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-    public Object getDiscount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Object getQuantity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
