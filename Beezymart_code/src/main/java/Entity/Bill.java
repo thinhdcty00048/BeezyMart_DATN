@@ -8,37 +8,44 @@ import java.util.Date;
 
 /**
  *
- * @author Admin
+ * @author ADMIN
  */
 public class Bill {
-    private int Id;
-    private int UserId;
-    private Date Checkin;
+    private int ID;
+    private int UserID;
     private Date Checkout;
     private String Status;
+    private float TotalAmount;
+    private String PaymentMethod;
+    private int GuestID;
 
-    public int getId() {
-        return Id;
+    public Bill(int ID, int UserID, Date Checkout, String Status, float TotalAmount, String PaymentMethod, int GuestID) {
+        this.ID = ID;
+        this.UserID = UserID;
+        this.Checkout = Checkout;
+        this.Status = Status;
+        this.TotalAmount = TotalAmount;
+        this.PaymentMethod = PaymentMethod;
+        this.GuestID = GuestID;
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public Bill() {
     }
 
-    public int getUserId() {
-        return UserId;
+    public int getID() {
+        return ID;
     }
 
-    public void setUserId(int UserId) {
-        this.UserId = UserId;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public Date getCheckin() {
-        return Checkin;
+    public int getUserID() {
+        return UserID;
     }
 
-    public void setCheckin(Date Checkin) {
-        this.Checkin = Checkin;
+    public void setUserID(int UserID) {
+        this.UserID = UserID;
     }
 
     public Date getCheckout() {
@@ -57,11 +64,11 @@ public class Bill {
         this.Status = Status;
     }
 
-    public double getTotalAmount() {
+    public float getTotalAmount() {
         return TotalAmount;
     }
 
-    public void setTotalAmount(double TotalAmount) {
+    public void setTotalAmount(float TotalAmount) {
         this.TotalAmount = TotalAmount;
     }
 
@@ -73,18 +80,12 @@ public class Bill {
         this.PaymentMethod = PaymentMethod;
     }
 
-    public Bill(int Id, int UserId, Date Checkin, Date Checkout, String Status, double TotalAmount, String PaymentMethod) {
-        this.Id = Id;
-        this.UserId = UserId;
-        this.Checkin = Checkin;
-        this.Checkout = Checkout;
-        this.Status = Status;
-        this.TotalAmount = TotalAmount;
-        this.PaymentMethod = PaymentMethod;
+    public int getGuestID() {
+        return GuestID;
     }
 
-    public Bill() {
+    public void setGuestID(int GuestID) {
+        this.GuestID = GuestID;
     }
-    private double TotalAmount;
-    private String PaymentMethod;
+    
 }

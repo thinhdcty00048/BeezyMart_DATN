@@ -11,45 +11,39 @@ import java.util.Date;
  * @author Admin
  */
 public class User {
-    private int Id;
+    private int ID;
     private String Password;
     private boolean Enable;
-    private String FullName; 
-    private boolean Maneger;
+    private String Fullname; 
+    private boolean IsManager;
     private String Email;
     private String PhoneNumber;
     private Date CreatedAt;
-    private Date LastLogin;
-    private String Role;
     private String ProfilePictule;
     private Date DateOfBirth;
-    private String Department;
 
-    public User(String userId, String fullname, Boolean chucvu, String password) {
-    }
-
-    public User(int Id, String Password, boolean Enable, String FullName, boolean Maneger, String Email, String PhoneNumber, Date CreatedAt, Date LastLogin, String Role, String ProfilePictule, Date DateOfBirth, String Department) {
-        this.Id = Id;
+    public User(int ID, String Password, boolean Enable, String Fullname, boolean IsManager, String Email, String PhoneNumber, Date CreatedAt, String ProfilePictule, Date DateOfBirth) {
+        this.ID = ID;
         this.Password = Password;
         this.Enable = Enable;
-        this.FullName = FullName;
-        this.Maneger = Maneger;
+        this.Fullname = Fullname;
+        this.IsManager = IsManager;
         this.Email = Email;
         this.PhoneNumber = PhoneNumber;
         this.CreatedAt = CreatedAt;
-        this.LastLogin = LastLogin;
-        this.Role = Role;
         this.ProfilePictule = ProfilePictule;
         this.DateOfBirth = DateOfBirth;
-        this.Department = Department;
     }
 
-    public int getId() {
-        return Id;
+    public User() {
+        }
+
+    public int getID() {
+        return ID;
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getPassword() {
@@ -68,20 +62,20 @@ public class User {
         this.Enable = Enable;
     }
 
-    public String getFullName() {
-        return FullName;
+    public String getFullname() {
+        return Fullname;
     }
 
-    public void setFullName(String FullName) {
-        this.FullName = FullName;
+    public void setFullname(String Fullname) {
+        this.Fullname = Fullname;
     }
 
-    public boolean isManeger() {
-        return Maneger;
+    public boolean isIsManager() {
+        return IsManager;
     }
 
-    public void setManeger(boolean Maneger) {
-        this.Maneger = Maneger;
+    public void setIsManager(boolean IsManager) {
+        this.IsManager = IsManager;
     }
 
     public String getEmail() {
@@ -108,22 +102,6 @@ public class User {
         this.CreatedAt = CreatedAt;
     }
 
-    public Date getLastLogin() {
-        return LastLogin;
-    }
-
-    public void setLastLogin(Date LastLogin) {
-        this.LastLogin = LastLogin;
-    }
-
-    public String getRole() {
-        return Role;
-    }
-
-    public void setRole(String Role) {
-        this.Role = Role;
-    }
-
     public String getProfilePictule() {
         return ProfilePictule;
     }
@@ -140,15 +118,4 @@ public class User {
         this.DateOfBirth = DateOfBirth;
     }
 
-    public String getDepartment() {
-        return Department;
-    }
-
-    public void setDepartment(String Department) {
-        this.Department = Department;
-    }
-
- 
-    
-    
 }

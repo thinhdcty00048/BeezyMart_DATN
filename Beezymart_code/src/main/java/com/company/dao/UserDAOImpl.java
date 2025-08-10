@@ -6,33 +6,33 @@ package com.company.dao;
 
 import Entity.User;
 import Util.XJdbc;
+import Util.XQuery;
 import java.util.List;
 
 /**
  *
  * @author Admin
  */
-public class UserDAOImpl implements UserDAO{
-String createSql = "INSERT INTO [User] VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+public class UserDAOImpl implements UserDAO {
+
+    String createSql = "INSERT INTO [User] VALUES(?,?,?,?,?,?,?,?,?)";
+    String LoginSql = "SELECT * FROM [User] WHERE Email = ? AND Password = ?";
+
     @Override
     public User create(User entity) {
- Object[] values = {
-     entity.getPassword(),
-     entity.isEnable(),
-     entity.getFullName(),
-     entity.isManeger(),
-     entity.getEmail(),
-     entity.getPhoneNumber(),
-     entity.getCreatedAt(),
-     entity.getLastLogin(),
-     entity.getRole(),
-     entity.getProfilePictule(),
-     entity.getDateOfBirth(),
-     entity.getDepartment(),
-     
-};
-XJdbc.executeUpdate(createSql, values);
-return entity;
+        Object[] values = {
+            entity.getPassword(),
+            entity.isEnable(),
+            entity.getFullname(),
+            entity.isIsManager(),
+            entity.getEmail(),
+            entity.getPhoneNumber(),
+            entity.getCreatedAt(),
+            entity.getProfilePictule(),
+            entity.getDateOfBirth()
+        };
+        XJdbc.executeUpdate(createSql, values);
+        return entity;
     }
 
     @Override
@@ -54,5 +54,14 @@ return entity;
     public User findById(String id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
+    @Override
+    public User Login(String email, String password) {
+         Object[] values = {
+            email,
+             password
+        };
+        return XQuery.getSingleBean(User.class, LoginSql, values);
+    }
+
 }

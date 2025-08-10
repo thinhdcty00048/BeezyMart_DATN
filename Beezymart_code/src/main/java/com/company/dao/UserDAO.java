@@ -13,4 +13,5 @@ import Entity.User;
  * @author Admin
  */
 public interface UserDAO extends CrudDAO<User, String>{
+    User Login(String email,String password );
 }

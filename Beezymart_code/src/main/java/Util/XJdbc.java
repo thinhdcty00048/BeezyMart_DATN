@@ -31,7 +31,7 @@ public class XJdbc {
      */
     public static Connection openConnection() {
         var driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        var dburl = "jdbc:sqlserver://14.225.205.75:1433;database=PentaBee;encrypt=true;trustServerCertificate=true;";
+        var dburl = "jdbc:sqlserver://14.225.205.75:1433;database=PentaBee2;encrypt=true;trustServerCertificate=true;";
         var username = "sa";
         var password = "Abcd1234@";
         try {

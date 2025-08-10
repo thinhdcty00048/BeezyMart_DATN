@@ -173,7 +173,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/Screenshot 2025-07-05 085224.png"/>
+              <Image iconType="2" name="C:\Users\ADMIN\OneDrive\Desktop\New folder\BeezyMart_DATN\Beezymart_code\src\main\java\icon\Screenshot 2025-07-05 085224.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -185,7 +185,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/Screenshot 2025-07-05 090155.png"/>
+              <Image iconType="2" name="C:\Users\ADMIN\OneDrive\Desktop\New folder\BeezyMart_DATN\Beezymart_code\src\main\java\icon\Screenshot 2025-07-05 090155.png"/>
             </Property>
           </Properties>
           <Constraints>

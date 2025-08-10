@@ -4,6 +4,8 @@
  */
 package UI;
 
+import Util.XAuth;
+
 /**
  *
  * @author Admin
@@ -15,6 +17,9 @@ public class QuanLyJframe extends javax.swing.JFrame {
      */
     public QuanLyJframe() {
         initComponents();
+        DangNhapJframe login = new DangNhapJframe();
+                login.setVisible(true);
+            
     }
 
     /**
@@ -103,10 +108,10 @@ public class QuanLyJframe extends javax.swing.JFrame {
         });
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 180, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Screenshot 2025-07-05 085224.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ADMIN\\OneDrive\\Desktop\\New folder\\BeezyMart_DATN\\Beezymart_code\\src\\main\\java\\icon\\Screenshot 2025-07-05 085224.png")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 770, 280));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Screenshot 2025-07-05 090155.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ADMIN\\OneDrive\\Desktop\\New folder\\BeezyMart_DATN\\Beezymart_code\\src\\main\\java\\icon\\Screenshot 2025-07-05 090155.png")); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -164,7 +169,8 @@ public class QuanLyJframe extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyJframe().setVisible(true);
+                QuanLyJframe ql = new QuanLyJframe();
+                   
             }
         });
     }
