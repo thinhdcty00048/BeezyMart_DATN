@@ -8,13 +8,17 @@ package Entity;
  *
  * @author ADMIN
  */
-public class Category {
+public class Guest {
     private int ID;
     private String Name;
+    private String Phone;
+    private int Score;
 
-    public Category(int ID, String Name) {
+    public Guest(int ID, String Name, String Phone, int Score) {
         this.ID = ID;
         this.Name = Name;
+        this.Phone = Phone;
+        this.Score = Score;
     }
 
     public int getID() {
@@ -31,6 +35,22 @@ public class Category {
 
     public void setName(String Name) {
         this.Name = Name;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String Phone) {
+        this.Phone = Phone;
+    }
+
+    public int getScore() {
+        return Score;
+    }
+
+    public void setScore(int Score) {
+        this.Score = Score;
     }
     
 }

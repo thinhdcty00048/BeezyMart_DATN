@@ -6,54 +6,69 @@ package Entity;
 
 /**
  *
- * @author Admin
+ * @author ADMIN
  */
 public class BillItem {
-    private int Id;
-    private int Bill;
-    private int Itemd;
-    private double UnitPrice;
-    private double Discount;
+    private int ID;
+    private int BillID;
+    private int ProductID;
+    private float Unitprice ;
+    private int Discount;
     private int Quantity;
     private String Note;
+    private String Unit;
 
-    public int getId() {
-        return Id;
+    public BillItem() {
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public BillItem(int ID, int BillID, int ProductID, float Unitprice, int Discount, int Quantity, String Note, String Unit) {
+        this.ID = ID;
+        this.BillID = BillID;
+        this.ProductID = ProductID;
+        this.Unitprice = Unitprice;
+        this.Discount = Discount;
+        this.Quantity = Quantity;
+        this.Note = Note;
+        this.Unit = Unit;
     }
 
-    public int getBill() {
-        return Bill;
+    public int getID() {
+        return ID;
     }
 
-    public void setBill(int Bill) {
-        this.Bill = Bill;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public int getItemd() {
-        return Itemd;
+    public int getBillID() {
+        return BillID;
     }
 
-    public void setItemd(int Itemd) {
-        this.Itemd = Itemd;
+    public void setBillID(int BillID) {
+        this.BillID = BillID;
     }
 
-    public double getUnitPrice() {
-        return UnitPrice;
+    public int getProductID() {
+        return ProductID;
     }
 
-    public void setUnitPrice(double UnitPrice) {
-        this.UnitPrice = UnitPrice;
+    public void setProductID(int ProductID) {
+        this.ProductID = ProductID;
     }
 
-    public double getDiscount() {
+    public float getUnitprice() {
+        return Unitprice;
+    }
+
+    public void setUnitprice(float Unitprice) {
+        this.Unitprice = Unitprice;
+    }
+
+    public int getDiscount() {
         return Discount;
     }
 
-    public void setDiscount(double Discount) {
+    public void setDiscount(int Discount) {
         this.Discount = Discount;
     }
 
@@ -73,16 +88,12 @@ public class BillItem {
         this.Note = Note;
     }
 
-    public BillItem(int Id, int Bill, int Itemd, double UnitPrice, double Discount, int Quantity, String Note) {
-        this.Id = Id;
-        this.Bill = Bill;
-        this.Itemd = Itemd;
-        this.UnitPrice = UnitPrice;
-        this.Discount = Discount;
-        this.Quantity = Quantity;
-        this.Note = Note;
+    public String getUnit() {
+        return Unit;
     }
 
-    public BillItem() {
+    public void setUnit(String Unit) {
+        this.Unit = Unit;
     }
+    
 }

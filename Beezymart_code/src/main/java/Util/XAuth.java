@@ -4,6 +4,8 @@
  */
 package Util;
 
+import Entity.User;
+
 
 /**
  *
@@ -12,9 +14,5 @@ package Util;
 public class XAuth {
   public static User user = null;  
 
-    private static class User {
 
-        public User() {
-        }
-    }
 }

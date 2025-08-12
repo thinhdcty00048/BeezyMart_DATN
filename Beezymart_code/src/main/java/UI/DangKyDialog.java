@@ -5,10 +5,13 @@
 package UI;
 
 import Entity.User;
+import Util.XDate;
 import Util.XDialog;
+import Util.XStr;
 import com.company.controller.IRegisterController;
 import com.company.dao.UserDAO;
 import com.company.dao.UserDAOImpl;
+import java.util.Date;
 
 /**
  *
@@ -26,17 +29,19 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
     
     UserDAO userDAO = new UserDAOImpl();
     private User getForm(){
-        String userId = tfUserID.getText();
         String fullname = tfFullName.getText();
-        String Stringchucvu = cbchucvu.getSelectedItem().toString();
-        Boolean chucvu;
-        if (Stringchucvu.equals("Male")){
-            chucvu = true;
-} else{
-            chucvu = false;
-        }
         String password = tfPassword.getText();
-        User user = new User(userId, fullname, chucvu, password);
+        String mahoa = XStr.encodeB64(password);
+        User user = new User();
+        user.setFullname(fullname);
+        user.setIsManager(cbchucvu.getSelectedIndex() == 0 ? false:true);
+        user.setCreatedAt(new Date());
+        user.setEmail(txtEmail.getText());
+        user.setPhoneNumber(txtPhone.getText());
+        user.setEnable(true);
+        user.setDateOfBirth(XDate.parse(txtDateOfBirth.getText(), "dd/MM/yyyy"));
+        user.setProfilePictule("");
+        user.setPassword(mahoa);
         return user;
     }
 
@@ -51,8 +56,6 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        tfUserID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         tfFullName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -63,19 +66,17 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
         cbchucvu = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        txtDateOfBirth = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Tạo Tài Khoản");
-
-        jLabel2.setText("UserName");
-
-        tfUserID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfUserIDActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Họ Và Tên");
 
@@ -109,6 +110,12 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
 
         jButton2.setText("Hủy");
 
+        jLabel7.setText("Email");
+
+        jLabel8.setText("Số Điện Thoại");
+
+        jLabel9.setText("Ngày sinh");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,26 +123,30 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jButton1)
+                        .addGap(103, 103, 103)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
                             .addComponent(cbchucvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(tfUserID, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                            .addComponent(tfFullName)
+                            .addComponent(tfFullName, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                             .addComponent(tfPassword)
-                            .addComponent(tfConfirmPasword)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jButton1)
-                        .addGap(117, 117, 117)
-                        .addComponent(jButton2)))
+                            .addComponent(tfConfirmPasword)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(txtEmail)
+                            .addComponent(txtDateOfBirth)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,11 +154,7 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,6 +167,18 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfConfirmPasword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(txtDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addGap(9, 9, 9)
+                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbchucvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,15 +186,11 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tfUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUserIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfUserIDActionPerformed
 
     private void tfFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFullNameActionPerformed
         // TODO add your handling code here:
@@ -235,16 +250,13 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
     
     @Override
     public void dangky() {
-        String userId = tfUserID.getText();
+
         String fullname = tfFullName.getText();
         String chucvu = cbchucvu.getSelectedItem().toString();
         String password = tfPassword.getText();
         String confirmPassword = tfConfirmPasword.getText();
  
-        if (userId == null || userId.isEmpty()) {
-            XDialog.alert("Vui Lòng UserName");
-            return;
-        }
+
         if (fullname == null || fullname.isEmpty()) {
             XDialog.alert("Vui Lòng Họ và Tên");
             return;
@@ -273,6 +285,7 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
         User user = getForm();
         
         userDAO.create(user);
+        XDialog.alert("Đã tạo tài khoảng thành công");
         
     }
 
@@ -281,14 +294,18 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField tfConfirmPasword;
     private javax.swing.JTextField tfFullName;
     private javax.swing.JPasswordField tfPassword;
-    private javax.swing.JTextField tfUserID;
+    private javax.swing.JTextField txtDateOfBirth;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 }
