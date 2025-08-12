@@ -112,7 +112,7 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
 
         jLabel7.setText("Email");
 
-        jLabel8.setText("SDT");
+        jLabel8.setText("Số Điện Thoại");
 
         jLabel9.setText("Ngày sinh");
 

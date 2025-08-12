@@ -179,7 +179,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="SDT"/>
+        <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x110;i&#x1ec7;n Tho&#x1ea1;i"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
