@@ -155,7 +155,7 @@ public class DangNhapJframe extends javax.swing.JFrame {
             QuanLyJframe ql  = new QuanLyJframe();
             ql.setVisible(true);
         } else {
-            XDialog.alert("Sai tk hoac mk");
+            XDialog.alert("Sai tài khoản hoac mật khẩu");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

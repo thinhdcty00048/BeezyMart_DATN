@@ -76,6 +76,7 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
         jLabel1.setText("Tạo Tài Khoản");
 
         jLabel3.setText("Họ Và Tên");
@@ -101,6 +102,7 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
 
         cbchucvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân Viên", "Quản Lý" }));
 
+        jButton1.setForeground(new java.awt.Color(255, 0, 0));
         jButton1.setText("Đăng Ký");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

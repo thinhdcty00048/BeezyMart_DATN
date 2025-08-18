@@ -41,6 +41,7 @@ public class DoiMatKhauJframe extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("ĐỔI MẬT KHẨU");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +89,7 @@ public class DoiMatKhauJframe extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 0, 0));
         jButton2.setText("Xác nhận");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -60,8 +60,6 @@ Timer timer;
 
         jLabel2.setText("0%");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mai Phuong\\OneDrive\\Documents\\GitHub\\BeezyMart_DATN\\Beezymart_code\\src\\main\\java\\icon\\BeezyMart.jpeg")); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,7 +72,7 @@ Timer timer;
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(280, 289, Short.MAX_VALUE)
