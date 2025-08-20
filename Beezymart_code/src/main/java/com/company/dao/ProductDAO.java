@@ -11,5 +11,5 @@ import Entity.Product;
  * @author Hii
  */
 public interface ProductDAO extends CrudDAO<Product, Integer>{
-    
+    void updateQuantity(int quantity, int productID);
 }
