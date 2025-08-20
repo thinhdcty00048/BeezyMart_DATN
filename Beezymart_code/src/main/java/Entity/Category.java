@@ -17,6 +17,9 @@ public class Category {
         this.Name = Name;
     }
 
+    public Category() {
+    }
+
     public int getID() {
         return ID;
     }

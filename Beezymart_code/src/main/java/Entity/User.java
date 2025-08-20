@@ -18,11 +18,14 @@ public class User {
     private boolean IsManager;
     private String Email;
     private String PhoneNumber;
-    private Date CreatedAt;
-    private String ProfilePictule;
+    private Date CreateAt;
+    private String ProfilePicture;
     private Date DateOfBirth;
 
-    public User(int ID, String Password, boolean Enable, String Fullname, boolean IsManager, String Email, String PhoneNumber, Date CreatedAt, String ProfilePictule, Date DateOfBirth) {
+    public User() {
+    }
+
+    public User(int ID, String Password, boolean Enable, String Fullname, boolean IsManager, String Email, String PhoneNumber, Date CreateAt, String ProfilePicture, Date DateOfBirth) {
         this.ID = ID;
         this.Password = Password;
         this.Enable = Enable;
@@ -30,13 +33,10 @@ public class User {
         this.IsManager = IsManager;
         this.Email = Email;
         this.PhoneNumber = PhoneNumber;
-        this.CreatedAt = CreatedAt;
-        this.ProfilePictule = ProfilePictule;
+        this.CreateAt = CreateAt;
+        this.ProfilePicture = ProfilePicture;
         this.DateOfBirth = DateOfBirth;
     }
-
-    public User() {
-        }
 
     public int getID() {
         return ID;
@@ -94,20 +94,20 @@ public class User {
         this.PhoneNumber = PhoneNumber;
     }
 
-    public Date getCreatedAt() {
-        return CreatedAt;
+    public Date getCreateAt() {
+        return CreateAt;
     }
 
-    public void setCreatedAt(Date CreatedAt) {
-        this.CreatedAt = CreatedAt;
+    public void setCreateAt(Date CreateAt) {
+        this.CreateAt = CreateAt;
     }
 
-    public String getProfilePictule() {
-        return ProfilePictule;
+    public String getProfilePicture() {
+        return ProfilePicture;
     }
 
-    public void setProfilePictule(String ProfilePictule) {
-        this.ProfilePictule = ProfilePictule;
+    public void setProfilePicture(String ProfilePicture) {
+        this.ProfilePicture = ProfilePicture;
     }
 
     public Date getDateOfBirth() {

@@ -11,14 +11,14 @@ package Entity;
 public class Product {
     private int ID;
     private String Name;
-    private float UnitPrice;
+    private int UnitPrice;
     private String UnitName;
     private int Discount;
     private boolean Available;
     private int Quantity;
     private int CategoryID;
 
-    public Product(int ID, String Name, float UnitPrice, String UnitName, int Discount, boolean Available, int Quantity, int CategoryID) {
+    public Product(int ID, String Name, int UnitPrice, String UnitName, int Discount, boolean Available, int Quantity, int CategoryID) {
         this.ID = ID;
         this.Name = Name;
         this.UnitPrice = UnitPrice;
@@ -27,6 +27,9 @@ public class Product {
         this.Available = Available;
         this.Quantity = Quantity;
         this.CategoryID = CategoryID;
+    }
+
+    public Product() {
     }
 
     public int getID() {
@@ -45,11 +48,11 @@ public class Product {
         this.Name = Name;
     }
 
-    public float getUnitPrice() {
+    public int getUnitPrice() {
         return UnitPrice;
     }
 
-    public void setUnitPrice(float UnitPrice) {
+    public void setUnitPrice(int UnitPrice) {
         this.UnitPrice = UnitPrice;
     }
 

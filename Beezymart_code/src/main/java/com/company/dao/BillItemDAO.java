@@ -4,14 +4,14 @@
  */
 package com.company.dao;
 
-import Entity.User;
-
-
+import Entity.BillItem;
+import java.util.List;
 
 /**
  *
- * @author Admin
+ * @author Hii
  */
-public interface UserDAO extends CrudDAO<User, Integer>{
-    User Login(String email,String password );
+public interface BillItemDAO extends CrudDAO<BillItem, Integer>{
+    List<BillItem> findByBillId(Integer billId);
+    void deleteByBillId(Integer billId);
 }
