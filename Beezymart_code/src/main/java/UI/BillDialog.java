@@ -7,6 +7,7 @@ package UI;
 import Entity.Bill;
 import Entity.Product;
 import Entity.User;
+import Util.XAuth;
 import Util.XDialog;
 import Util.XJdbc;
 import com.company.dao.BillDAO;
@@ -266,7 +267,7 @@ public class BillDialog extends javax.swing.JDialog {
             return;
         }
 
-        int userId = 2; // lấy từ txtUser hoặc session nếu cần
+        int userId = XAuth.user.getID();
 
         // compute total
         double totalAmount = cart.stream().mapToDouble(CartItem::getTotal).sum();
@@ -285,6 +286,16 @@ public class BillDialog extends javax.swing.JDialog {
             bill.setTotalAmount((float) totalAmount); // Bill dùng float
             bill.setPaymentMethod(paymentMethod);
             bill.setGuestID(0); // 0 = no guest; nếu muốn null, đổi GuestID thành Integer trong Entity.Bill
+            
+
+            for (CartItem it : cart) {
+                Product pd = productDao.findById(it.productId);
+                if (pd.getQuantity() < it.qty){
+                    XDialog.alert( "Số lượng sản phẩm quá mức cho phép\nSố lượng sản phẩm " + it.productName + " trong cửa hàng là " + pd.getQuantity() 
+                       );
+                    return;
+                }
+            }
 
             // create bill via DAO -> will set ID into bill (BillDAOImpl.create dùng OUTPUT INSERTED.ID)
             Bill createdBill = billDao.create(bill);
@@ -305,6 +316,8 @@ public class BillDialog extends javax.swing.JDialog {
                 bi.setQuantity(it.qty);
                 bi.setNote(it.note);
                 bi.setUnit(it.unit);
+                Product pd = productDao.findById(it.productId);
+                productDao.updateQuantity(pd.getQuantity() - it.qty, pd.getID());
 
                 billItemDao.create(bi);
                 // nếu bạn muốn kiểm tra ID vừa tạo: bi.getID() sau khi create sẽ có ID (nếu BillItemDAOImpl implement OUTPUT INSERTED.ID)

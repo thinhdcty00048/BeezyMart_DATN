@@ -10,34 +10,36 @@ import Util.XQuery;
 import java.util.List;
 
 /**
- * ProductDAOImpl - CRUD cho bảng Product
- * Tương tự UserDAOImpl / CategoryDAOImpl
+ * ProductDAOImpl - CRUD cho bảng Product Tương tự UserDAOImpl / CategoryDAOImpl
  *
- * Lưu ý:
- * - Nếu cột ID là IDENTITY (auto-increment) thì INSERT không nên chèn ID,
- *   nên chỉ liệt kê các cột còn lại trong câu INSERT.
- * - Nếu cần lấy ID vừa tạo, có thể dùng OUTPUT INSERTED.ID hoặc SELECT SCOPE_IDENTITY().
+ * Lưu ý: - Nếu cột ID là IDENTITY (auto-increment) thì INSERT không nên chèn
+ * ID, nên chỉ liệt kê các cột còn lại trong câu INSERT. - Nếu cần lấy ID vừa
+ * tạo, có thể dùng OUTPUT INSERTED.ID hoặc SELECT SCOPE_IDENTITY().
  *
  * @author ADMIN
  */
 public class ProductDAOImpl implements ProductDAO {
 
     // Chỉ rõ cột khi INSERT để tránh lỗi nếu bảng có cột ID là identity
-    String createSql = "INSERT INTO [Product] " +
-            "([Name],[UnitPrice],[UnitName],[Discount],[Available],[Quantity],[CategoryID]) " +
-            "VALUES (?,?,?,?,?,?,?)";
+    String createSql = "INSERT INTO [Product] "
+            + "([Name],[UnitPrice],[UnitName],[Discount],[Available],[Quantity],[CategoryID]) "
+            + "VALUES (?,?,?,?,?,?,?)";
 
     String findAllSql = "SELECT * FROM [Product]";
     String findByIdSql = "SELECT * FROM [Product] WHERE [ID] = ?";
-    String updateSql = "UPDATE [Product] SET " +
-            "[Name] = ?, " +
-            "[UnitPrice] = ?, " +
-            "[UnitName] = ?, " +
-            "[Discount] = ?, " +
-            "[Available] = ?, " +
-            "[Quantity] = ?, " +
-            "[CategoryID] = ? " +
-            "WHERE [ID] = ?";
+    String updateSql = "UPDATE [Product] SET "
+            + "[Name] = ?, "
+            + "[UnitPrice] = ?, "
+            + "[UnitName] = ?, "
+            + "[Discount] = ?, "
+            + "[Available] = ?, "
+            + "[Quantity] = ?, "
+            + "[CategoryID] = ? "
+            + "WHERE [ID] = ?";
+
+    String updateQuantitySql = "UPDATE [Product] SET "
+            + "[Quantity] = ? "
+            + "WHERE [ID] = ?";
     String deleteSql = "DELETE FROM [Product] WHERE [ID] = ?";
 
     @Override
@@ -77,12 +79,21 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public Product findById(Integer id) {
-        Object[] values = { id };
+        Object[] values = {id};
         return XQuery.getSingleBean(Product.class, findByIdSql, values);
     }
 
     @Override
     public void deleteById(Integer id) {
         XJdbc.executeUpdate(deleteSql, id);
+    }
+
+    @Override
+    public void updateQuantity(int quantity, int productID) {
+        Object[] values = {
+           quantity,
+            productID
+        };
+        XJdbc.executeUpdate(updateQuantitySql, values);
     }
 }

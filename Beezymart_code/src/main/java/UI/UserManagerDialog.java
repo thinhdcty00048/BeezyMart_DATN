@@ -33,7 +33,7 @@ public class UserManagerDialog extends javax.swing.JDialog {
     UserDAO dao = new UserDAOImpl();
 
     public void fillToTable() {
-        DefaultTableModel model = (DefaultTableModel) tblUser.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblUser1.getModel();
         model.setRowCount(0);
 
         items = dao.findAll();
@@ -53,14 +53,14 @@ public class UserManagerDialog extends javax.swing.JDialog {
     }
 
     private User getForm() {
-        String fullname = tfFullName.getText().trim();
-        String password = tfPassword.getText().trim();
-        String email = txtEmail.getText().trim();
-        String phone = txtPhone.getText().trim();
-        String dob = txtDateOfBirth.getText().trim();
-        String passConfirm = tfConfirmPasword.getText();
-        boolean enable = cboTrangThai.getSelectedIndex() == 0 ? true : false;
-        boolean isManager = cbchucvu.getSelectedIndex() == 0 ? false : true;
+        String fullname = tfFullName1.getText().trim();
+        String password = tfPassword1.getText().trim();
+        String email = txtEmail1.getText().trim();
+        String phone = txtPhone1.getText().trim();
+        String dob = txtDateOfBirth1.getText().trim();
+        String passConfirm = tfConfirmPasword1.getText();
+        boolean enable = cboTrangThai1.getSelectedIndex() == 0 ? true : false;
+        boolean isManager = cbchucvu1.getSelectedIndex() == 0 ? false : true;
 
         if (fullname.isEmpty()) {
             XDialog.alert("Vui lòng điền Họ và Tên!");
@@ -112,29 +112,29 @@ public class UserManagerDialog extends javax.swing.JDialog {
         if (user != null) {
             dao.create(user);
             XDialog.alert("Đã tạo tài khoảng thành công");
-            jTabbedPane1.setSelectedIndex(0);
+            jTabbedPane2.setSelectedIndex(1);
             fillToTable();
         }
 
     }
 
     private void setForm(User user) {
-        tfFullName.setText(user.getFullname());
-        txtDateOfBirth.setText(XDate.format(user.getDateOfBirth(), "dd/MM/yyyy"));
-        txtEmail.setText(user.getEmail());
-        txtPhone.setText(user.getPhoneNumber());
-        cbchucvu.setSelectedIndex(user.isIsManager() ? 0 : 1);
-        cboTrangThai.setSelectedIndex(user.isEnable() ? 0 : 1);
-        txtID.setText(user.getID() + "");
+        tfFullName1.setText(user.getFullname());
+        txtDateOfBirth1.setText(XDate.format(user.getDateOfBirth(), "dd/MM/yyyy"));
+        txtEmail1.setText(user.getEmail());
+        txtPhone1.setText(user.getPhoneNumber());
+        cbchucvu1.setSelectedIndex(user.isIsManager() ? 0 : 1);
+        cboTrangThai1.setSelectedIndex(user.isEnable() ? 0 : 1);
+        txtID1.setText(user.getID() + "");
         String giaima = XStr.decodeB64(user.getPassword());
-        tfPassword.setText(giaima);
-        tfConfirmPasword.setText(giaima);
+        tfPassword1.setText(giaima);
+        tfConfirmPasword1.setText(giaima);
     }
 
     private void disableButton() {
-        btnCreate.setEnabled(false);
-        btnUpdate.setEnabled(false);
-        btnDelete.setEnabled(false);
+        btnCreate1.setEnabled(false);
+        btnUpdate1.setEnabled(false);
+        btnDelete1.setEnabled(false);
 
     }
 
@@ -143,35 +143,35 @@ public class UserManagerDialog extends javax.swing.JDialog {
         User user = getForm();
 
         if (user != null) {
-            user.setID(Integer.parseInt(txtID.getText()));
+            user.setID(Integer.parseInt(txtID1.getText()));
             dao.update(user);
             XDialog.alert("Cập nhật nhân viên thành công");
-            jTabbedPane1.setSelectedIndex(0);
+            jTabbedPane2.setSelectedIndex(1);
             fillToTable();
         }
 
     }
 
     private void reset() {
-        txtDateOfBirth.setText("");
-        txtEmail.setText("");
-        txtID.setText("");
-        txtPhone.setText("");
-        tfConfirmPasword.setText("");
-        tfPassword.setText("");
-        tfFullName.setText("");
-        btnCreate.setEnabled(true);
-        btnUpdate.setEnabled(false);
-        btnDelete.setEnabled(false);
+        txtDateOfBirth1.setText("");
+        txtEmail1.setText("");
+        txtID1.setText("");
+        txtPhone1.setText("");
+        tfConfirmPasword1.setText("");
+        tfPassword1.setText("");
+        tfFullName1.setText("");
+        btnCreate1.setEnabled(true);
+        btnUpdate1.setEnabled(false);
+        btnDelete1.setEnabled(false);
     }
 
     private void delete() {
         User user = getForm();
         if (user != null) {
-            user.setID(Integer.parseInt(txtID.getText()));
+            user.setID(Integer.parseInt(txtID1.getText()));
             dao.deleteById(user.getID());
             XDialog.alert("Xóa thành công nhân viên " + user.getFullname());
-            jTabbedPane1.setSelectedIndex(0);
+            jTabbedPane2.setSelectedIndex(1);
             fillToTable();
         }
     }
@@ -216,8 +216,6 @@ public class UserManagerDialog extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblUser1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         tfFullName1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -243,6 +241,8 @@ public class UserManagerDialog extends javax.swing.JDialog {
         jLabel21 = new javax.swing.JLabel();
         txtID1 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblUser1 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
 
@@ -429,41 +429,6 @@ public class UserManagerDialog extends javax.swing.JDialog {
 
         jTabbedPane2.setBackground(new java.awt.Color(0, 204, 204));
 
-        tblUser1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Họ và tên", "Chức vụ", "Email", "Số điện thoại", "Ngày tạo", "Ngày sinh", "Trạng thái"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, true, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblUser1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblUser1MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tblUser1);
-
-        jTabbedPane2.addTab("Danh sách nhân viên", jScrollPane2);
-
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfFullName1.setActionCommand("<Not Set>");
@@ -583,6 +548,41 @@ public class UserManagerDialog extends javax.swing.JDialog {
 
         jTabbedPane2.addTab("Chi tiết nhân viên", jPanel4);
 
+        tblUser1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Họ và tên", "Chức vụ", "Email", "Số điện thoại", "Ngày tạo", "Ngày sinh", "Trạng thái"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblUser1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblUser1MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblUser1);
+
+        jTabbedPane2.addTab("Danh sách nhân viên", jScrollPane2);
+
         jPanel6.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -639,7 +639,7 @@ public class UserManagerDialog extends javax.swing.JDialog {
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
-            int index = tblUser.getSelectedRow();
+            int index = tblUser1.getSelectedRow();
             User user = items.get(index);
             setForm(user);
             disableButton();
@@ -684,13 +684,13 @@ public class UserManagerDialog extends javax.swing.JDialog {
     private void tblUser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUser1MouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
-            int index = tblUser.getSelectedRow();
+            int index = tblUser1.getSelectedRow();
             User user = items.get(index);
             setForm(user);
             disableButton();
-            btnDelete.setEnabled(true);
-            btnUpdate.setEnabled(true);
-            jTabbedPane1.setSelectedIndex(1);
+            btnDelete1.setEnabled(true);
+            btnUpdate1.setEnabled(true);
+            jTabbedPane2.setSelectedIndex(0);
         }
     }//GEN-LAST:event_tblUser1MouseClicked
 
