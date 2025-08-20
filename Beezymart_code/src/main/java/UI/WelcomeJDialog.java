@@ -32,11 +32,7 @@ Timer timer;
                 jProgressBar1.setValue(value);
                 if (value >= 100) {
                     timer.stop();
-                    
                     dispose(); // đóng welcome dialog
-
-                    // 👉 Mở form đăng nhập
-                    new DangNhapJframe().setVisible(true);
                 }
             }
         });
@@ -60,6 +56,8 @@ Timer timer;
 
         jLabel2.setText("0%");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mai Phuong\\OneDrive\\Documents\\GitHub\\BeezyMart_DATN\\Beezymart_code\\src\\main\\java\\icon\\BeezyMart.jpeg")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,7 +70,7 @@ Timer timer;
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(280, 289, Short.MAX_VALUE)
@@ -125,14 +123,7 @@ Timer timer;
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                WelcomeJDialog dialog = new WelcomeJDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+               
             }
         });
     }

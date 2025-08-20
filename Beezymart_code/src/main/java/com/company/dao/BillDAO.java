@@ -4,14 +4,12 @@
  */
 package com.company.dao;
 
-import Entity.User;
-
-
+import Entity.Bill;
 
 /**
  *
- * @author Admin
+ * @author Hii
  */
-public interface UserDAO extends CrudDAO<User, Integer>{
-    User Login(String email,String password );
+public interface BillDAO extends CrudDAO<Bill, Integer>{
+    
 }

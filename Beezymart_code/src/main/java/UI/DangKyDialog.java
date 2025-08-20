@@ -233,6 +233,7 @@ public class DangKyDialog extends javax.swing.JDialog implements IRegisterContro
             java.util.logging.Logger.getLogger(DangKyDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
